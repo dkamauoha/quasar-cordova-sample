@@ -1,7 +1,24 @@
 <template>
   <q-page class="column flex-center items-center">
-    <q-btn color='primary' size='lg'>
-      <router-link to='/status' style='text-decoration: none; color: white;'>Go to Status</router-link>
+    <h1 v-if='$q.platform.is.mobile'>Status Page</h1>
+    <h2 v-if='$q.platform.is.desktop'>Status Page</h2>
+    <div v-if='$q.platform.is.mobile' class='q-mb-md'>
+      <p class='text-justify'>Mobile <i class="fa fa-wifi"></i></p>
+    </div>
+    <div v-if='$q.platform.is.desktop' class=''>
+      <p>Desktop <i class='fas fa-ethernet'></i></p>
+    </div>
+    <div class='column flex-center' style='width: 100%;'>
+      <q-card v-for='(item, index) in items' :key='index'
+        class='row items-center justify-between q-px-md'
+        style='width: 80%;'
+      >
+        <h4>{{ item.name }}</h4>
+        <p :class='item.color'>{{ item.status }} <i :class='item.icon'></i></p>
+      </q-card>
+    </div>
+    <q-btn color='primary' size='md' class='q-mt-lg'>
+      <router-link to='/' style='text-decoration: none; color: white;'>Back</router-link>
     </q-btn>
   </q-page>
 </template>

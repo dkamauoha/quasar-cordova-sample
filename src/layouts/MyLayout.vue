@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header>
+    <q-layout-header v-ripple>
       <q-toolbar
-        color="primary"
+        class='primary'
         :glossy="$q.theme === 'mat'"
         :inverted="$q.theme === 'ios'"
       >
@@ -17,7 +17,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          Did it work?
+          Status Page App
           <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
         </q-toolbar-title>
       </q-toolbar>
@@ -79,4 +79,7 @@ export default {
 </script>
 
 <style>
+.bg-vlblue {
+  background: #20a8d8;
+}
 </style>
